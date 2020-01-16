@@ -41,3 +41,87 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+// Task 1
+const mainTitle = document.querySelector("h1");
+mainTitle.textContent = "Did this work at all?";
+
+const ctaImage = document.getElementById("cta-img");
+ctaImage.src = "img/header-img.png";
+
+const middleImage = document.getElementById("middle-img");
+middleImage.src = "img/mid-page-accent.jpg";
+
+const navItems = document.querySelectorAll("a");
+let itemIncrement = 1;
+const navList = navItems.forEach(cv => {
+  return (cv.textContent = siteContent.nav[`nav-item-${itemIncrement++}`]);
+});
+
+const headerText = document.querySelector("h1");
+headerText.textContent = siteContent.cta.h1;
+
+const button = document.querySelector("button");
+button.textContent = siteContent.cta.button;
+
+const mainContent = siteContent["main-content"];
+
+const featuresH4 = document.querySelectorAll("h4");
+featuresH4[0].textContent = mainContent["features-h4"];
+featuresH4[1].textContent = mainContent["about-h4"];
+featuresH4[2].textContent = mainContent["services-h4"];
+featuresH4[3].textContent = mainContent["product-h4"];
+featuresH4[4].textContent = mainContent["vision-h4"];
+
+const bodyContentParagraphs = document.querySelectorAll("p");
+bodyContentParagraphs[0].textContent = mainContent["features-content"];
+bodyContentParagraphs[1].textContent = mainContent["about-content"];
+bodyContentParagraphs[2].textContent = mainContent["services-content"];
+bodyContentParagraphs[3].textContent = mainContent["product-content"];
+bodyContentParagraphs[4].textContent = mainContent["vision-content"];
+
+const contactSection = siteContent["contact"];
+
+const contactH4 = document.querySelectorAll(".contact h4");
+contactH4.textContent = contactSection["contact-h4"];
+
+const contactParagraph = document.querySelectorAll(".contact p");
+contactParagraph[0].textContent = contactSection.address;
+contactParagraph[1].textContent = contactSection.phone;
+contactParagraph[2].textContent = contactSection.email;
+
+const footerShortcut = siteContent.footer;
+
+const copyright = document.querySelector("footer p");
+copyright.textContent = footerShortcut.copyright;
+
+//Task 3
+
+navItems.forEach(cv => {
+  return (cv.style.color = "green");
+});
+
+const firstNavItem = document.createElement("a");
+firstNavItem.textContent = "First Item";
+
+const lastNavItem = document.createElement("a");
+lastNavItem.textContent = "Last Item";
+
+const selectNav = document.querySelector("nav");
+
+selectNav.prepend(firstNavItem);
+selectNav.appendChild(lastNavItem);
+
+firstNavItem.style.color = "green";
+lastNavItem.style.color = "green";
+
+const navButtonColor = document.querySelectorAll("a");
+
+button.addEventListener("click", () => {
+  navButtonColor.forEach(cv => {
+    if (cv.style.color == "green") {
+      return (cv.style.color = "red");
+    } else if (cv.style.color == "red") {
+      return (cv.style.color = "green");
+    }
+  });
+});
